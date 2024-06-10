@@ -20,7 +20,7 @@ def beverage():
         command = b'\x54'
         ser.write(command)
  
-    if selected_beverage == "Rum and Coke":
+    if selected_beverage == "Vodka and Cider":
         command = b'\x56'
         ser.write(command)
  
