@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}All beverages{% endblock %}
+
+{% block content %}
+<form hx-post="/drink" hx-target="#choice" hx-swap="innerHTML" class="flex flex-col gap-3 p-5">
+    <h1 class="text-3xl">Välj en drink</h1>
+    <fieldset class="w-full md:w-1/2 m-auto m-auto flex flex-col text-left">
+      <select name="beverage" class="py-1 w-full m-auto border border-slate-300 hover:border-slate-400 rounded-md">
+      {% for beverage in beverages %}
+          <option value="{{beverage}}">{{beverage}}</option>
+      {% endfor %}
+      </select>
+    </fieldset>
+    <input type="submit" value="Submit" class="py-1 w-1/2 md:w-1/3 m-auto border border-slate-300 hover:border-slate-400 rounded-md cursor-pointer" />
+</form>
+<p id="choice">Ditt val av dryck kommer hamna här</p>
+{% endblock %}
