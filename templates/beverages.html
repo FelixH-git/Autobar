@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}All beverages{% endblock %} {% block
+content %}
+<form
+  hx-post="/drink"
+  hx-target="#choice"
+  hx-swap="innerHTML"
+  class="m-auto md:card bg-base-100 md:w-96 text-neutral-content md:border border-gray-600"
+>
+  <div class="card-body items-center text-center">
+    <h1 class="card-title">Välj en drink</h1>
+    <div class="card-actions">
+      <select name="beverage" class="select select-primary w-full">
+        {% for beverage in beverages %}
+        <option value="{{beverage}}">{{beverage}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Submit" class="btn btn-success w-full" />
+    </div>
+    <div class="justify-end">
+      <p id="choice">Ditt val av dryck kommer hamna här</p>
+    </div>
+  </div>
+</form>
+{% endblock %}
